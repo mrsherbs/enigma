@@ -177,6 +177,7 @@
             <h1>Usage / Welcome</h1>
             <p>Enter text and adjust the settings</p>
             <p>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
+            <p>Enigma was Germany's primary method of encrypting communications, the M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
 
             <br>
 
@@ -224,15 +225,7 @@
             }
 
             function translateGerman1() {
-                document.getElementById("inputText").value = `
-                GXDJZHH BK. 0246/21/203:
-                GZZ TBXHYLWKUC 55° OQSFHQ PMYCYXDD, IMUGMEYS-
-                GN JKPYLQFPTI UC. ZSLDOPUL CMOMS. ZB 3995.
-                CN 4, UTO 3, 10/10 XMSMNDL, 28 ES QYQESNXZ,
-                HHSAH, DQSFH 1 QI.
-                                    INNVJDNCS
-
-                `
+                document.getElementById("inputText").value = `GXDJZHH BK. 0246/21/203: GZZ TBXHYLWKUC 55° OQSFHQ PMYCYXDD, IMUGMEYS-GN JKPYLQFPTI UC. ZSLDOPUL CMOMS. ZB 3995. CN 4, UTO 3, 10/10 XMSMNDL, 28 ES QYQESNXZ, HHSAH, DQSFH 1 QI. INNVJDNCS `
 
                 document.getElementById("ring10").value = "1"
                 document.getElementById("ring20").value = "1"
@@ -363,6 +356,7 @@
                 container.innerHTML = `
                     <h1> Historical Messages [Formatted and Translated] </h1>
                     <h2> *Words in [] are added interpretations due to missing info / typos in original messages</h2>
+                    <h2> These messages were transmitted by U-Boat Captains during the Second World War </h2>
                     
                     <br>
 
@@ -399,8 +393,8 @@
                     <ul>2. The plugboard (Steckerbrett) changes the A electrical signal to an S.</ul>
                     <ul>2.5. The first of 3 rotors transforms the S to a D: Notice how S maps to D, but D does not map to S. This will be important later.</ul>
                     <ul>3. Notice how this rotor is offset. The leftmost rotor would rotate every keypress, it would move the other rotors at a set point with a notch in its shell. In this example, I rotated the middle rotor to position B (2).</ul>
-                    <ul>4. This is the reflector (Umkehrwalze), this is what ensures Enigma is reversible (ie. you can cipher and decipher with the same settings, so ABC <--> DEF encode to eachother). </ul>
-                    <ul>4.1 Only the reflector and plugboard map keys to eachother in pairs, A will lead to F and F will lead to A.</ul>
+                    <ul>4. This is the reflector (Umkehrwalze), it is what ensures Enigma is reversible (ie. you can cipher and decipher with the same settings, so ABC <--> DEF encipher and decipher to eachother). </ul>
+                    <ul>4.1 Only the reflector and plugboard map keys to eachother in pairs: A will lead to F and F will lead to A.</ul>
                     <ul>4.2 This leads to a quirk of Enigma where no key can encipher to itself, which was eventually exploited by Alan Turing and his team of codebreakers at Bletchley Park.</ul>
 
                     <img src="https://i.ibb.co/r06wCBX/unnamed.jpg" alt="Enigma Diagram" style="width:100%; border-radius: 10px; margin-top: 10px;">
@@ -419,6 +413,7 @@
                     <h1>Usage / Welcome</h1>
                     <p>Enter text and adjust the settings</p>
                     <p>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
+                    <p>Enigma was Germany's primary method of encrypting communications, the M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
 
                     <br>
 
