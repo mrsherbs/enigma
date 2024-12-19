@@ -177,7 +177,7 @@
             <h1>Usage / Welcome</h1>
             <p>Enter text and adjust the settings</p>
             <p>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
-            <p>Enigma was Germany's primary method of encrypting communications, the M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
+            <p>Enigma was Germany's primary method of encrypting communications. The M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
 
             <br>
 
@@ -387,15 +387,18 @@
             function toDiagram() {
                 const container = document.querySelector(".container2");
                 container.innerHTML = `
-                    <h1> Electrical Diagram [drawn by me] </h1>
+                    <h1> Electrical Diagram: Simplified 3 Rotor Design [drawn by me] </h1>
+                    <h2> Enigma is a chained line of subsitution ciphers, basically ciphers that replace characters with other characters one by one. What made Enigma so powerful was that it could change it's wiring as you typed: An A inputted once might get you a B, but if you do it again it could be a G or an F. </h2>
+                    <h2> It did this by sending electricity through a set of rotors. The rotors had electrical contacts wired to each other to change the signal as it flowed through the machine.</h2>
 
                     <ul>1. Operator presses the A key</ul>
                     <ul>2. The plugboard (Steckerbrett) changes the A electrical signal to an S.</ul>
                     <ul>2.5. The first of 3 rotors transforms the S to a D: Notice how S maps to D, but D does not map to S. This will be important later.</ul>
-                    <ul>3. Notice how this rotor is offset. The leftmost rotor would rotate every keypress, it would move the other rotors at a set point with a notch in its shell. In this example, I rotated the middle rotor to position B (2).</ul>
+                    <ul>3. Notice how this rotor is offset. The leftmost rotor would rotate every keypress, it would move the other rotors at a set point every 26 (or 13 on the Naval rotors) keypresses with a notch in its shell. In this example, I rotated the middle rotor to position B (2).</ul>
                     <ul>4. This is the reflector (Umkehrwalze), it is what ensures Enigma is reversible (ie. you can cipher and decipher with the same settings, so ABC <--> DEF encipher and decipher to eachother). </ul>
                     <ul>4.1 Only the reflector and plugboard map keys to eachother in pairs: A will lead to F and F will lead to A.</ul>
                     <ul>4.2 This leads to a quirk of Enigma where no key can encipher to itself, which was eventually exploited by Alan Turing and his team of codebreakers at Bletchley Park.</ul>
+                    <ul>4.3 Another quirk of Enigma is that when all of the rotors are in the right place, it can "double-step", or rotate 3 of its rotors at once. This made it really hard to predict how the electrical signal would change, along with the rotors already rotating themselves. (double stepping is also in my simulated Enigma) </ul>
 
                     <img src="https://i.ibb.co/r06wCBX/unnamed.jpg" alt="Enigma Diagram" style="width:100%; border-radius: 10px; margin-top: 10px;">
 
