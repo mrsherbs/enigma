@@ -2867,41 +2867,6 @@ var bruh_rev = function (input, rotor) {
 };
 var word = '';
 
-// it's almost midnight lol idec atp !!! :(
-if (document.getElementById("rotorSetting10").value == "rotorGamma") {
-    beta = gamma
-    betaStellung = parseInt(document.getElementById("ring10").value)
-}
-if (document.getElementById("rotorSetting10").value == "rotorBeta") {
-    beta = beta
-    betaStellung = parseInt(document.getElementById("ring10").value)
-}
-
-if (document.getElementById("rotorSetting20").value == "rotor1") {
-    rotorI = rotorI
-}
-else if (document.getElementById("rotorSetting20").value == "rotor2") {
-    rotorI = rotorII
-}
-else if (document.getElementById("rotorSetting20").value == "rotor3") {
-    rotorI = rotorIII
-}
-else if (document.getElementById("rotorSetting20").value == "rotor4") {
-    rotorI = rotorIV
-}
-else if (document.getElementById("rotorSetting20").value == "rotor5") {
-    rotorI = rotorV
-}
-else if (document.getElementById("rotorSetting20").value == "rotor6") {
-    rotorI = rotorVI
-}
-else if (document.getElementById("rotorSetting20").value == "rotor7") {
-    rotorI = rotorVII
-}
-else if (document.getElementById("rotorSetting20").value == "rotor8") {
-    rotorI = rotorVIII
-}
-
 rotorIStellung = parseInt(document.getElementById("ring20").value)
 rotorIIStellung = parseInt(document.getElementById("ring30").value)
 rotorIIIStellung = parseInt(document.getElementById("ring40").value)
@@ -2910,56 +2875,6 @@ rotorIPos = parseInt(document.getElementById("pos20").value)
 rotorIIPos = parseInt(document.getElementById("pos30").value)
 rotorIIIPos = parseInt(document.getElementById("pos40").value)
 betaPosition = parseInt(document.getElementById("pos10").value)
-
-if (document.getElementById("rotorSetting30").value == "rotor1") {
-    rotorII = rotorI
-}
-else if (document.getElementById("rotorSetting30").value == "rotor2") {
-    rotorII = rotorII
-}
-else if (document.getElementById("rotorSetting30").value == "rotor3") {
-    rotorII = rotorIII
-}
-else if (document.getElementById("rotorSetting30").value == "rotor4") {
-    rotorII = rotorIV
-}
-else if (document.getElementById("rotorSetting30").value == "rotor5") {
-    rotorII = rotorV
-}
-else if (document.getElementById("rotorSetting30").value == "rotor6") {
-    rotorII = rotorVI
-}
-else if (document.getElementById("rotorSetting30").value == "rotor7") {
-    rotorII = rotorVII
-}
-else if (document.getElementById("rotorSetting30").value == "rotor8") {
-    rotorII = rotorVIII
-}
-
-if (document.getElementById("rotorSetting40").value == "rotor1") {
-    rotorIII = rotorI
-}
-else if (document.getElementById("rotorSetting40").value == "rotor2") {
-    rotorIII = rotorII
-}
-else if (document.getElementById("rotorSetting40").value == "rotor3") {
-    rotorIII = rotorIII
-}
-else if (document.getElementById("rotorSetting40").value == "rotor4") {
-    rotorIII = rotorIV
-}
-else if (document.getElementById("rotorSetting40").value == "rotor5") {
-    rotorIII = rotorV
-}
-else if (document.getElementById("rotorSetting40").value == "rotor6") {
-    rotorIII = rotorVI
-}
-else if (document.getElementById("rotorSetting40").value == "rotor7") {
-    rotorIII = rotorVII
-}
-else if (document.getElementById("rotorSetting40").value == "rotor8") {
-    rotorIII = rotorVIII
-}
 
 var rotorI = dict ({'RotorMap': I, 'Position': rotorIPos, 'Stellung': rotorIStellung, 'Turnover': rotorITurnover});
 var rotorII = dict ({'RotorMap': II, 'Position': rotorIIPos, 'Stellung': rotorIIStellung, 'Turnover': rotorIITurnover});
@@ -2973,6 +2888,91 @@ var ukw_b = dict ({'RotorMap': UKW_B});
 var ukw_c = dict ({'RotorMap': UKW_C});
 var beta = dict ({'RotorMap': BETA, 'Position': betaPosition, 'Stellung': betaStellung});
 var gamma = dict ({'RotorMap': GAMMA, 'Position': gammaPosition, 'Stellung': gammaStellung});
+        
+// it's almost midnight lol idec atp !!! :(
+if (document.getElementById("rotorSetting10").value == "rotorGamma") {
+    beta["RotorMap"] = gamma["RotorMap"]
+    betaStellung = parseInt(document.getElementById("ring10").value)
+}
+if (document.getElementById("rotorSetting10").value == "rotorBeta") {
+    beta = beta
+    betaStellung = parseInt(document.getElementById("ring10").value)
+}
+
+if (document.getElementById("rotorSetting20").value == "rotor1") {
+    rotorI = rotorI
+}
+else if (document.getElementById("rotorSetting20").value == "rotor2") {
+    rotorI["RotorMap"] = rotorII["RotorMap"]
+}
+else if (document.getElementById("rotorSetting20").value == "rotor3") {
+    rotorI["RotorMap"] = rotorIII["RotorMap"]
+}
+else if (document.getElementById("rotorSetting20").value == "rotor4") {
+    rotorI["RotorMap"] = rotorIV["RotorMap"]
+}
+else if (document.getElementById("rotorSetting20").value == "rotor5") {
+    rotorI["RotorMap"] = rotorV["RotorMap"]
+}
+else if (document.getElementById("rotorSetting20").value == "rotor6") {
+    rotorI["RotorMap"] = rotorVI["RotorMap"]
+}
+else if (document.getElementById("rotorSetting20").value == "rotor7") {
+    rotorI["RotorMap"] = rotorVII["RotorMap"]
+}
+else if (document.getElementById("rotorSetting20").value == "rotor8") {
+    rotorI["RotorMap"] = rotorVII["RotorMap"]
+}
+        
+if (document.getElementById("rotorSetting30").value == "rotor1") {
+    rotorII["RotorMap"] = rotorI["RotorMap"]
+}
+else if (document.getElementById("rotorSetting30").value == "rotor2") {
+    rotorII = rotorII
+}
+else if (document.getElementById("rotorSetting30").value == "rotor3") {
+    rotorII["RotorMap"] = rotorIII["RotorMap"]
+}
+else if (document.getElementById("rotorSetting30").value == "rotor4") {
+    rotorII["RotorMap"] = rotorIV["RotorMap"]
+}
+else if (document.getElementById("rotorSetting30").value == "rotor5") {
+    rotorII["RotorMap"] = rotorV["RotorMap"]
+}
+else if (document.getElementById("rotorSetting30").value == "rotor6") {
+    rotorII["RotorMap"] = rotorVI["RotorMap"]
+}
+else if (document.getElementById("rotorSetting30").value == "rotor7") {
+    rotorII["RotorMap"] = rotorVII["RotorMap"]
+}
+else if (document.getElementById("rotorSetting30").value == "rotor8") {
+    rotorII["RotorMap"] = rotorVIII["RotorMap"]
+}
+
+if (document.getElementById("rotorSetting40").value == "rotor1") {
+    rotorIII["RotorMap"] = rotorI["RotorMap"]
+}
+else if (document.getElementById("rotorSetting40").value == "rotor2") {
+    rotorIII["RotorMap"] = rotorII["RotorMap"]
+}
+else if (document.getElementById("rotorSetting40").value == "rotor3") {
+    rotorIII = rotorIII
+}
+else if (document.getElementById("rotorSetting40").value == "rotor4") {
+    rotorIII["RotorMap"] = rotorIV["RotorMap"]
+}
+else if (document.getElementById("rotorSetting40").value == "rotor5") {
+    rotorIII["RotorMap"] = rotorV["RotorMap"]
+}
+else if (document.getElementById("rotorSetting40").value == "rotor6") {
+    rotorIII["RotorMap"] = rotorVI["RotorMap"]
+}
+else if (document.getElementById("rotorSetting40").value == "rotor7") {
+    rotorIII["RotorMap"] = rotorVII["RotorMap"]
+}
+else if (document.getElementById("rotorSetting40").value == "rotor8") {
+    rotorIII["RotorMap"] = rotorVIII["RotorMap"]
+}
 
 for (var letter of document.getElementById("inputText").value) {
     print ('LETTER:', letter);
