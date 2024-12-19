@@ -80,16 +80,16 @@
             <p style="font-size: 20px;">Enigma Setup:</p>
             <label for="rotorSetting1">Reflector:</label>
             <select id="rotorSetting1">
-                <option value="rotor1">UKW B Thin</option>
-                <option value="rotor2">UKW C Thin</option>
+                <option value="reflectorB">UKW B Thin</option>
+                <option value="reflectorC">UKW C Thin</option>
             </select>
             <br>
 
 
             <label for="rotorSetting1">Rotor 1:</label>
             <select id="rotorSetting1">
-                <option value="rotor1" selected>Beta</option>
-                <option value="rotor2">Gamma</option>
+                <option value="rotorBeta"selected>Beta</option>
+                <option value="rotorGamma">Gamma</option>
             </select>
 
 
@@ -102,9 +102,14 @@
 
             <label for="rotorSetting1">Rotor 2:</label>
             <select id="rotorSetting1">
-                <option value="rotor1">Rotor I</option>
-                <option value="rotor2" selected>Rotor II</option>
+                <option value="rotor1"selected>Rotor I</option>
+                <option value="rotor2">Rotor II</option>
                 <option value="rotor3">Rotor III</option>
+                <option value="rotor4">Rotor IV</option>
+                <option value="rotor5">Rotor V</option>
+                <option value="rotor6">Rotor VI</option>
+                <option value="rotor7">Rotor VII</option>
+                <option value="rotor8">Rotor VIII</option>
             </select>
 
 
@@ -118,8 +123,13 @@
             <label for="rotorSetting">Rotor 3:</label>
             <select id="rotorSetting">
                 <option value="rotor1">Rotor I</option>
-                <option value="rotor2">Rotor II</option>
-                <option value="rotor3" selected>Rotor III</option>
+                <option value="rotor2"selected>Rotor II</option>
+                <option value="rotor3">Rotor III</option>
+                <option value="rotor4">Rotor IV</option>
+                <option value="rotor5">Rotor V</option>
+                <option value="rotor6">Rotor VI</option>
+                <option value="rotor7">Rotor VII</option>
+                <option value="rotor8">Rotor VIII</option>
             </select>
 
 
@@ -134,7 +144,12 @@
             <select id="rotorSetting">
                 <option value="rotor1">Rotor I</option>
                 <option value="rotor2">Rotor II</option>
-                <option value="rotor3" selected>Rotor IV</option>
+                <option value="rotor3"selected>Rotor III</option>
+                <option value="rotor4">Rotor IV</option>
+                <option value="rotor5">Rotor V</option>
+                <option value="rotor6">Rotor VI</option>
+                <option value="rotor7">Rotor VII</option>
+                <option value="rotor8">Rotor VIII</option>
             </select>
 
 
@@ -154,23 +169,32 @@
 
         </div>
 
-        <div class="container2">
-            <h1>Usage</h1>
-            <p>Enter text and adjust the settings</p>
-            <p>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
-
+        <div class="container2" style="max-height: 800px; overflow-y: auto;">
+            <h1> Historical Messages [Formatted and Translated] </h1>
+            <h2> *Words in [] are added interpretations due to missing info / typos in original messages</h2>
+            
             <br>
 
-            <ul>
-                <li>Enigma is fully reversible: it uses the same process for encryption and decryption.</li>
-                <br>
-                <br>
-                <li>When you encrypt a message with Enigma, you can decrypt it by applying the same machine settings and plugging in the ciphered text.</li>
-                <br>
-            </ul>
+            <h2>1st Lt. Schroeder's Message from U-623</h2>
+            <img src="https://enigma.hoerenberg.com/cms/download.php?cat=65_M4%20Project%202006&file=Schroeder_211142.jpg" alt="Schroeder's War Diary" style="width:50%; border-radius: 10px; margin-top: 10px;">
+            <p>Schroeder's War Diary</p>
+            <button onclick="swapContent()">Auto Decipher</button> <button onclick="swapContent()">Auto Decipher English</button>
+
+            <h2>Lt. Captain Rasch's Provisions Request from U-106</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/U-106a.jpg" alt="U-106" style="width:50%; border-radius: 10px; margin-top: 10px;">
+            <p>U-106 shortly before being sunk northwest of Spain in 1943</p>
+            <button onclick="swapContent()">Auto Decipher</button> <button onclick="swapContent()">Auto Decipher English</button>
+
+            <h2>Lt. Captain Looks' Final Message from U-264</h2>
+            <img src="https://www.uboatarchive.net/U-264A/U-264Starling.jpg" alt="U-264" style="width:50%; border-radius: 10px; margin-top: 10px;">
+            <p>HMS Starling, which sunk U-264 in 1944</p>
+            <button onclick="swapContent()">Auto Decipher</button> <button onclick="swapContent()">Auto Decipher English</button>
+
+            <br>
+            <br>
 
             <button onclick="swapContent()">Historical Messages</button>
-            <button onclick="swapContent()">Usage</button>
+            <button onclick="swapContent()">Usage / Welcome</button>
             <button onclick="swapContent()">Circuit Diagram</button>
         </div>
 
