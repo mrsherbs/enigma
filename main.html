@@ -10,11 +10,16 @@
             background-color: #f4f4f9;
             color: #333;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
+        }
+        .wrapper {
+            display: flex;
+            gap: 20px;
+            width: 75%;
+            max-width: 99999;
         }
         .container {
             text-align: center;
@@ -23,8 +28,16 @@
             border-radius: 10px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
+            flex: 1;
+        }
+        .container2 {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
         }
         textarea {
             width: 90%;
@@ -36,23 +49,7 @@
             font-size: 16px;
             resize: vertical;
         }
-        select, button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="number"] {
-            margin-top: 10px;
-            padding: 10px 15px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="text"] {
+        select, button, input[type="number"], input[type="text"] {
             margin-top: 10px;
             padding: 10px 15px;
             font-size: 16px;
@@ -67,136 +64,140 @@
         button:hover {
             background-color: #0056b3;
         }
+        li {
+            font-size: 20px;
+        }
+        p {
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>M4 Enigma Translator</h1>
-        <textarea id="inputText" placeholder="Enter text to encode or decode..."></textarea>
-
-        <p style="font-size: 20px;">Enigma Setup:</p>
-
-        <label for="rotorSetting1">Reflector:</label>
-        <select id="rotorSetting1">
-            <option value="rotor1">UKW B Thin</option>
-            <option value="rotor2">UKW C Thin</option>
-        </select>
-
-        <br>
-
-        <label for="rotorSetting1">Rotor 1:</label>
-        <select id="rotorSetting1">
-            <option value="rotor1">Rotor I</option>
-            <option value="rotor2">Rotor II</option>
-            <option value="rotor3">Rotor III</option>
-            <option value="rotor1">Rotor IV</option>
-            <option value="rotor2">Rotor V</option>
-            <option value="rotor3">Rotor VI</option>
-            <option value="rotor1">Rotor VII</option>
-            <option value="rotor2">Rotor VIII</option>
-        </select>
-
-        <label for="rotorSetting">Position:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
-
-        <label for="rotorSetting">Ring:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
-        <span id="letterDisplay"></span>        
-
-        <br>
-
-        <label for="rotorSetting1">Rotor 2:</label>
-        <select id="rotorSetting1">
-            <option value="rotor1">Rotor I</option>
-            <option value="rotor2">Rotor II</option>
-            <option value="rotor3">Rotor III</option>
-            <option value="rotor1">Rotor IV</option>
-            <option value="rotor2">Rotor V</option>
-            <option value="rotor3">Rotor VI</option>
-            <option value="rotor1">Rotor VII</option>
-            <option value="rotor2">Rotor VIII</option>
-        </select>
-        
-        <label for="rotorSetting">Position:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
-
-        <label for="rotorSetting">Ring:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
-
-        <br>
-
-        <label for="rotorSetting">Rotor 3:</label>
-        <select id="rotorSetting">
-            <option value="rotor1">Rotor I</option>
-            <option value="rotor2">Rotor II</option>
-            <option value="rotor3">Rotor III</option>
-            <option value="rotor1">Rotor IV</option>
-            <option value="rotor2">Rotor V</option>
-            <option value="rotor3">Rotor VI</option>
-            <option value="rotor1">Rotor VII</option>
-            <option value="rotor2">Rotor VIII</option>
-        </select>
-
-        <label for="rotorSetting">Position:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
-
-        <label for="rotorSetting">Ring:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
-
-        <br>
-
-        <label for="rotorSetting">Rotor 3:</label>
-        <select id="rotorSetting">
-            <option value="rotor1">Rotor I</option>
-            <option value="rotor2">Rotor II</option>
-            <option value="rotor3">Rotor III</option>
-            <option value="rotor1">Rotor IV</option>
-            <option value="rotor2">Rotor V</option>
-            <option value="rotor3">Rotor VI</option>
-            <option value="rotor1">Rotor VII</option>
-            <option value="rotor2">Rotor VIII</option>
-        </select>
+    <div class="wrapper">
+        <div class="container">
+            <h1>M4 Enigma (1942)</h1>
+            <textarea id="inputText" placeholder="Enter text to encode / decode here..."></textarea>
+            <p style="font-size: 20px;">Enigma Setup:</p>
+            <label for="rotorSetting1">Reflector:</label>
+            <select id="rotorSetting1">
+                <option value="rotor1">UKW B Thin</option>
+                <option value="rotor2">UKW C Thin</option>
+            </select>
+            <br>
 
 
-        <label for="rotorSetting">Position:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
+            <label for="rotorSetting1">Rotor 1:</label>
+            <select id="rotorSetting1">
+                <option value="rotor1" selected>Beta</option>
+                <option value="rotor2">Gamma</option>
+            </select>
 
-        <label for="rotorSetting">Ring:</label>
-        <input type="number" id="ring1" min="1" max="26" value="1">
 
-        <br>
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring1" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring Offset:</label>
+            <input type="number" id="ring2" min="1" max="26" value="1" class="rotorSetting">
+            <br>
 
-        <label for="plugboard">Plugboard:</label>
-        <input type="text" id="plugboard" title="Plugboard">
 
-        <br>
+            <label for="rotorSetting1">Rotor 2:</label>
+            <select id="rotorSetting1">
+                <option value="rotor1">Rotor I</option>
+                <option value="rotor2" selected>Rotor II</option>
+                <option value="rotor3">Rotor III</option>
+            </select>
 
-        <button onclick="cipher()">Translate</button>
-        <textarea id="outputText" placeholder="Translation will appear here..." readonly style="margin-top: 20px;"></textarea>
 
-        <br>
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring3" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring Offset:</label>
+            <input type="number" id="ring4" min="1" max="26" value="1" class="rotorSetting">
+            <br>
+
+
+            <label for="rotorSetting">Rotor 3:</label>
+            <select id="rotorSetting">
+                <option value="rotor1">Rotor I</option>
+                <option value="rotor2">Rotor II</option>
+                <option value="rotor3" selected>Rotor III</option>
+            </select>
+
+
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring5" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring Offset:</label>
+            <input type="number" id="ring6" min="1" max="26" value="1" class="rotorSetting">
+            <br>
+
+
+            <label for="rotorSetting">Rotor 4:</label>
+            <select id="rotorSetting">
+                <option value="rotor1">Rotor I</option>
+                <option value="rotor2">Rotor II</option>
+                <option value="rotor3" selected>Rotor IV</option>
+            </select>
+
+
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring7" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring Offset:</label>
+            <input type="number" id="ring8" min="1" max="26" value="1" class="rotorSetting">
+            <br>
+
+            <label for="plugboard">Plugboard:</label>
+            <input type="text" id="plugboard" title="Plugboard" value="br cb dj ew kt ms ox pz uh">
+            <br>
+
+            <button onclick="cipher()">Translate</button>
+            <textarea id="outputText" placeholder="Output..." readonly style="margin-top: 20px;"></textarea>
+            <br>
+
+        </div>
+
+        <div class="container2">
+            <h1>Usage</h1>
+            <p>Enter text and adjust the settings</p>
+            <p>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
+
+            <br>
+
+            <ul>
+                <li>Enigma is fully reversible: it uses the same process for encryption and decryption.</li>
+                <br>
+                <br>
+                <li>When you encrypt a message with Enigma, you can decrypt it by applying the same machine settings and plugging in the ciphered text.</li>
+                <br>
+            </ul>
+
+            <button onclick="swapContent()">Historical Messages</button>
+            <button onclick="swapContent()">Usage</button>
+            <button onclick="swapContent()">Circuit Diagram</button>
+        </div>
+
+        <script>
+            function swapContent() {
+                const container = document.querySelector('.container2');
+                container.innerHTML = 'test'
+            }
+        </script>
     </div>
-
-    <script>
-        // TODO: implement w/ cipher.py later
-        function cipher() {
-
-        };
-    </script>
 </body>
 </html>
 
 <script>
     document.getElementById("plugboard").addEventListener("input", function() {
         var input = this.value.trim();
-        var plugboardCombos = input.split(/\s+/);
         var valid = true;
         
         // https://regex-generator.olafneumann.org
         // regex for removing any non a-z A-Z char and whitespace
         input = input.replace(/[^A-Za-z]/g, "").replace(/\s+/g, "");
         // regex to get groups of 2 chars and space them out to create plugboard permutation
+        input = input.replace(/(.{2})(?=.)/g, '$1 ')
         this.value = input.replace(/(.{2})(?=.)/g, '$1 ');
+
+        var plugboardCombos = input.split(/\s+/);
+        console.log(plugboardCombos)
 
         plugboardCombos.forEach(function(combo) {
             // check for 2 letter pairs and check if plugboard is empty
@@ -213,6 +214,8 @@
         } else {
             this.style.borderColor = "red";
         };
+
+        this.value = plugboardCombos.join(" ")
     });
 
     document.querySelectorAll(".rotorSetting").forEach(function(element){
@@ -220,7 +223,10 @@
             input = this.value.trim()
 
             inputNum = parseInt(input, 10)
-            if (Number.isInteger(inputNum) || input < 1 || inputNum > 26) {
+            // i dont know why, but when i test this on IOS / Safari
+            // the boxes accept all input types including characters
+            // extra check to make sure people know why it isn't working
+            if (!Number.isInteger(inputNum) || inputNum < 1 || inputNum > 26) {
                 element.style.borderColor = "red"
             }
             else {

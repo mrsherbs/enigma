@@ -15,7 +15,8 @@ plugboard = {
 }
 
 def offset_letter(letter, offset):
-    start = ord('A') if letter.isupper() else ord('a')
+    start = ord('A')
+    # mod 26 to prevent overflow (z would end up offsetting to "{", but instead goes to "a" in unicode)
     offset = (ord(letter) - start + offset) % 26
     return chr(start + offset)
 
@@ -43,9 +44,10 @@ rotorIIITurnover = letter_to_alphabet_position("W")
 
 word = ""
 
-for letter in "skibidi":
+for letter in "LFEQYQF":
     print("LETTER:", letter)
 
+    letter = str.upper(letter)
     letter = swap(letter)
 
     rotorIIIPos = rotorIIIPos + 1
