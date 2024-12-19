@@ -175,9 +175,9 @@
 
         <div class="container2">
             <h1>Usage / Welcome</h1>
-            <p>Enter text and adjust the settings</p>
-            <p>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
-            <p>Enigma was Germany's primary method of encrypting communications. The M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
+            <h3>Enter text and adjust the settings</p>
+            <h3>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
+            <h3>Enigma was Germany's primary method of encrypting communications. The M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
 
             <br>
 
@@ -413,34 +413,34 @@
             function toWelcome() {
                 const container = document.querySelector('.container2');
                 container.innerHTML = `
-                    <h1>Usage / Welcome</h1>
-                    <p>Enter text and adjust the settings</p>
-                    <p>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
-                    <p>Enigma was Germany's primary method of encrypting communications, the M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
+                <h1>Usage / Welcome</h1>
+                <h3>Enter text and adjust the settings</p>
+                <h3>Historically accurate simulation of the 1942 M4 Naval Enigma Machine</p>
+                <h3>Enigma was Germany's primary method of encrypting communications. The M4 Enigma was used in 1942 to hide Naval communications from the Allies</p>
 
+                <br>
+
+                <ul>
+                    <li>Enigma is fully reversible: it uses the same process for encryption and decryption.</li>
                     <br>
-
-                    <ul>
-                        <li>Enigma is fully reversible: it uses the same process for encryption and decryption.</li>
-                        <br>
-                        <br>
-                        <li>When you encrypt a message with Enigma, you can decrypt it by applying the same machine settings and plugging in the ciphered text.</li>
-                        <br>
-                        <br>
-                        <li>The plugboard only accepts pairs of 2 letters.</li>
-                        <br>
-                        <br>
-                        <li>Enigma had no spacebar or backspace key, so historical messages are often difficult to read. I've formatted and added punctuation to them here to make them readable.</li>
-                        <br>
-                        <br>
-                        <li>Historical messages are sourced from https://enigma.hoerenberg.com/.</li>
-                    </ul>
-
                     <br>
+                    <li>When you encrypt a message with Enigma, you can decrypt it by applying the same machine settings and plugging in the ciphered text.</li>
+                    <br>
+                    <br>
+                    <li>The plugboard only accepts pairs of 2 letters.</li>
+                    <br>
+                    <br>
+                    <li>Enigma had no spacebar or backspace key, so historical messages are often difficult to read. I've formatted and added punctuation to them here to make them readable.</li>
+                    <br>
+                    <br>
+                    <li>Historical messages are sourced from https://enigma.hoerenberg.com/.</li>
+                </ul>
 
-                    <button onclick="toHistory()">Historical Messages</button>
-                    <button onclick="toCredit()">Image Credits</button>
-                    <button onclick="toDiagram()">Circuit Diagram</button>
+                <br>
+
+                <button onclick="toHistory()">Historical Messages</button>
+                <button onclick="toCredit()">Image Credits</button>
+                <button onclick="toDiagram()">Circuit Diagram</button>
             `
             }
         </script>
