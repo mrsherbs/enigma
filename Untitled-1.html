@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigma Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .wrapper {
+            display: flex;
+            gap: 20px; /* Space between the two containers */
+            width: 90%;
+            max-width: 1200px;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Both divs take equal space */
+        }
+        .container2 {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Both divs take equal space */
+        }
+        textarea {
+            width: 90%;
+            height: 100px;
+            margin-bottom: 15px;
+            padding: 1px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+        }
+        select, button, input[type="number"], input[type="text"] {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>M4 Enigma (1942)</h1>
+            <textarea id="inputText" placeholder="Enter text to encode / decode here..."></textarea>
+            <p style="font-size: 20px;">Enigma Setup:</p>
+            <label for="rotorSetting1">Reflector:</label>
+            <select id="rotorSetting1">
+                <option value="rotor1">UKW B Thin</option>
+                <option value="rotor2">UKW C Thin</option>
+            </select>
+            <br>
+            <label for="rotorSetting1">Rotor 1:</label>
+            <select id="rotorSetting1">
+                <option value="rotor1" selected>Beta</option>
+                <option value="rotor2">Gamma</option>
+            </select>
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring1" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring:</label>
+            <input type="number" id="ring2" min="1" max="26" value="1" class="rotorSetting">
+            <br>
+            <label for="rotorSetting1">Rotor 2:</label>
+            <select id="rotorSetting1">
+                <option value="rotor1">Rotor I</option>
+                <option value="rotor2" selected>Rotor II</option>
+                <option value="rotor3">Rotor III</option>
+            </select>
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring3" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring:</label>
+            <input type="number" id="ring4" min="1" max="26" value="1" class="rotorSetting">
+            <br>
+            <label for="rotorSetting">Rotor 3:</label>
+            <select id="rotorSetting">
+                <option value="rotor1">Rotor I</option>
+                <option value="rotor2">Rotor II</option>
+                <option value="rotor3" selected>Rotor III</option>
+            </select>
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring5" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring:</label>
+            <input type="number" id="ring6" min="1" max="26" value="1" class="rotorSetting">
+            <br>
+            <label for="rotorSetting">Rotor 4:</label>
+            <select id="rotorSetting">
+                <option value="rotor1">Rotor I</option>
+                <option value="rotor2">Rotor II</option>
+                <option value="rotor3" selected>Rotor IV</option>
+            </select>
+            <label for="rotorSetting">Position:</label>
+            <input type="number" id="ring7" min="1" max="26" value="1" class="rotorSetting">
+            <label for="rotorSetting">Ring:</label>
+            <input type="number" id="ring8" min="1" max="26" value="1" class="rotorSetting">
+            <br>
+            <label for="plugboard">Plugboard:</label>
+            <input type="text" id="plugboard" title="Plugboard" value="br cb dj ew kt ms ox pz uh">
+            <br>
+            <button onclick="cipher()">Translate</button>
+            <textarea id="outputText" placeholder="Output..." readonly style="margin-top: 20px;"></textarea>
+            <br>
+        </div>
+        <div class="container2">
+            <!-- Additional content for container2 -->
+            <h2>Instructions</h2>
+            <p>Enter your text and configure the Enigma settings to translate.</p>
+            <ul>
+                <li>Adjust rotor settings.</li>
+                <li>Configure the plugboard.</li>
+                <li>Click the Translate button to see the output.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById("plugboard").addEventListener("input", function() {
+        var input = this.value.trim();
+        var valid = true;
+        
+        // https://regex-generator.olafneumann.org
+        // regex for removing any non a-z A-Z char and whitespace
+        input = input.replace(/[^A-Za-z]/g, "").replace(/\s+/g, "");
+        // regex to get groups of 2 chars and space them out to create plugboard permutation
+        input = input.replace(/(.{2})(?=.)/g, '$1 ')
+        this.value = input.replace(/(.{2})(?=.)/g, '$1 ');
+
+        var plugboardCombos = input.split(/\s+/);
+        console.log(plugboardCombos)
+
+        plugboardCombos.forEach(function(combo) {
+            // check for 2 letter pairs and check if plugboard is empty
+            // empty plugboard is valid and routes key input to self (A --> A)
+            if (combo.length !== 2 || !/^[A-Za-z]{2}$/.test(combo)) {
+                if (combo.length !== 0) {
+                    valid = false
+                };
+            };
+        });
+
+        if (valid) {
+            this.style.borderColor = "";
+        } else {
+            this.style.borderColor = "red";
+        };
+
+        this.value = plugboardCombos.join(" ")
+    });
+
+    document.querySelectorAll(".rotorSetting").forEach(function(element){
+        element.addEventListener("input", function() {
+            input = this.value.trim()
+
+            inputNum = parseInt(input, 10)
+            if (!Number.isInteger(inputNum) || inputNum < 1 || inputNum > 26) {
+                element.style.borderColor = "red"
+            }
+            else {
+                element.style.borderColor = ""
+            }
+        })
+    });
+</script>
